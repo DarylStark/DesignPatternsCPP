@@ -1,11 +1,11 @@
 #include "MazeGame.h"
 
-Maze *MazeGame::CreateMaze()
+Maze *MazeGame::CreateMaze(MazeFactory &factory)
 {
-    Maze *aMaze = new Maze;
-    Room *r1 = new Room(1);
-    Room *r2 = new Room(2);
-    Door *theDoor = new Door(r1, r2);
+    Maze *aMaze = factory.make_maze();
+    Room *r1 = factory.make_room(1);
+    Room *r2 = factory.make_room(2);
+    Door *theDoor = factory.make_door(r1, r2);
 
     aMaze->add_room(r1);
     aMaze->add_room(r2);
